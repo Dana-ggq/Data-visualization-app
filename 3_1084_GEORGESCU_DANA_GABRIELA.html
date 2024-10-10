@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <Title>Vizualizarea datelor</Title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif' rel='stylesheet'>
+
+    <link rel="stylesheet" href="3_1084_GEORGESCU_DANA_GABRIELA.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="titlebg">
+                <h1 class="title" data-text="Vizualizarea Datelor">Vizualizarea Datelor</h1>
+                <p>Pib pe cap de locuitor, Speranta Viata, Populatie pentru tarile UE</p>
+            </div>
+        </div>
+        <div class="graphics">
+            <div class="histogram">
+                <div id="chart_div"></div>
+                <div class="options">
+                    <div class="selector_div">
+                        <select class="selector" id="tara" name="tara">
+                            <option selected disabled>Tara</option>
+                        </select>
+                    </div>
+                    <div class="selector_div">
+                        <select class="selector" id="indicator" name="indicator">
+                            <option selected disabled>Indicatorul</option>
+                        </select>
+                    </div>
+                    <div class="button_div">
+                        <button id="histogramButton" class="submit_button">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bubble">
+                <div class="canvas_div" id="bubble_chart_div">
+                    <canvas id="canvasBubbleChart">
+                        Your browser does not support the canvas element.
+                    </canvas>
+                </div>
+                <div class="options">
+                    <div class="selector_div">
+                        <select class="selector" id="anBubble" name="an">
+                            <option selected disabled>An</option>
+                        </select>
+                    </div>
+                    <div class="button_div">
+                        <button id="bubbleButton" class="submit_button">Submit</button>
+                    </div>
+                    <div class="check_box_div">
+                        <span>Start animatie ani :</span><input type="checkbox" id="animation"></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="table">
+            <div class="contentTable">
+                <table id="table">
+                    <thead>
+                        <th>Tara</th>
+                        <th>Speranta Viata</th>
+                        <th>Populatie</th>
+                        <th>Pib/locuitor</th>
+                    </thead>
+                    <tbody id="tableBody">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="selector_div">
+                <select class="selector" id="anTable" name="an">
+                    <option selected disabled>An</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script src="3_1084_GEORGESCU_DANA_GABRIELA.js"></script>
+
+</html>

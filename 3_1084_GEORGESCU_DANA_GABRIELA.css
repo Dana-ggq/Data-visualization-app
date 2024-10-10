@@ -1,0 +1,372 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Serif', sans-serif;
+   
+}
+
+body{
+    background-image: url("media/background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container{
+    /* ocupa toata pagina */
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    /* 3 coloane care ocupa o fr de ecran*/
+    grid-template-columns: repeat(3, 1fr);
+    /* 2 linii */ 
+    grid-template-rows: 100px  1fr;
+
+    grid-template-areas: 
+    "header header header"
+    "graphics graphics table"
+    "graphics graphics table";
+
+    gap: 10px;
+    padding: 10px;
+}
+
+.header{
+    grid-area: header;
+    display: flex;
+    align-items: center;
+}
+
+ .titlebg{
+    background-color: #8C52FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1%;
+    margin-left: 3%;
+    border-radius:80px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+}
+
+.header h1{
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    padding: 0px 10px;
+}
+
+.header p{
+   color: white;
+   padding: 0px 10px;
+}
+
+.graphics{
+    grid-area: graphics;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5%;
+    padding: 3%;
+}
+
+.graphics .histogram, 
+.graphics .bubble{
+    background-color: white;
+    box-shadow: 8px 8px 2px -4px #A6A6A6;
+    display:flex;
+    justify-content: center;
+   
+    width: 100%;
+    height: 100%;
+    min-height: 50%;
+    
+}
+
+.histogram #chart_div, .bubble .canvas_div{
+    width: 75%;
+    height: 100%;
+}
+
+/* .bubble .canvas_div{
+   position: relative;
+}
+
+#canvasBubbleChart{
+    position: absolute;
+    width: 100%;
+    height: 90%;
+} */
+
+
+.histogram .options, .bubble .options{
+    background-color: #F8F8F8;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+    border-radius: 20px;
+    border: 1px solid #77838D;
+    width: 20%;
+    min-width: 120px;
+    height: 50%;
+    margin: 1%;
+    margin-top: 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+}
+
+.table{
+    grid-area: table;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    flex-direction: column;
+    gap: 5%;
+    padding: 5%;
+}
+
+.contentTable{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+    border: 1px solid #77838D;
+}
+
+#table{
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;  
+    font-size: 0.75em;
+}
+
+#table td, #table th{
+    padding: 5px, 5px;
+    text-align: center;
+    border: 1px solid #C7D0D8;
+}
+
+#table th{
+    background-color: #747577;
+    color: white;
+    font-size: 1.3em;
+}
+
+.selector_div{
+    position: relative;
+}
+
+.selector{
+    border-radius: 3px;
+    background-color: #F0F8FD;
+    cursor: pointer;
+    width: 110px;
+    margin-top: 5px;
+    margin-left: 5%;
+    padding: 5px 5px;
+    appearance: none;
+    border: 1px solid #38B6FF;
+    text-align: justify;
+    color: #545454;
+    outline: 0px;
+}
+
+
+.selector:hover{
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+}
+
+.selector_div::after{
+    content:'';
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent;
+    border-top-color: #38B6FF;
+    border-radius: 2px;
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    /*sa se poate apasa si acolo tot pe select*/
+    pointer-events: none;
+}
+
+.button_div, .check_box_div{
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    padding: 0px 15px;
+    margin: 5px;
+    
+}
+
+.bubble .button_div, .check_box_div{
+    justify-content: left;
+    padding: 0px 5px;
+}
+
+
+.check_box_div span{
+    height: 100%;
+    width: 70%;
+    font-size: 70%;
+    white-space: nowrap;
+    float: left;
+    margin-left: 2px;
+    color:#747577;  
+}
+
+
+.submit_button{
+    position: relative;
+    padding: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid #c2c2c2;
+    border-radius: 5px;
+    color: whitesmoke;
+    background: linear-gradient(90deg, #362dba, #d1bdff);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    cursor: pointer;
+    /*text in fata*/
+    z-index: 1;
+
+}
+
+
+/*animatie hover buton */
+.submit_button::before{
+    content:'';
+    position: absolute;
+    top:0; left:0; bottom:0; right:0;
+    border-radius: 5px;
+    background-color: #443cb3;
+    /*in spatele butonului*/
+    z-index: -1; 
+
+    /*animatie incepe din stanga*/
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+   
+}
+
+.submit_button:hover::before{
+    transform: scaleX(1);
+}
+
+.bar{
+    fill: #38B6FF;
+    stroke-width: 1px; /*contur*/
+    stroke: white;
+}
+
+.bar:hover{
+    stroke: #C7D0D8;
+    cursor: pointer;
+}
+
+.tooltip{
+    fill: #F8F8F8;
+    stroke-width: 0.5px; /*contur*/
+    stroke: #545454;
+}
+
+.tooltiptext{
+    fill: #545454;
+}
+
+input[type="checkbox"]{
+    position: relative;
+    margin-right: 5px;
+    width: 25%;
+    height: 20px; 
+    -webkit-appearance: none;
+    background-color: #C7D0D8;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+
+input:checked[type="checkbox"]{
+    background: #38B6FF;
+    transition: 0.5s;
+}
+
+input[type="checkbox"]::before{
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 20px; 
+    top:0;
+    left:0;
+    transform: scale(1.1);
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 0.8);
+    background-color: white;
+    transition: 0.5s;
+    
+}
+
+input:checked[type="checkbox"]::before{
+   left: 50%;
+   transition: 0.5s;
+}
+
+
+@media only screen and (max-width : 900px){
+    .container{
+        width: 100vw;
+        height: 100vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 2fr 0.8fr;
+        grid-template-areas: 
+        "header"
+        "graphics"
+        "table";
+    }
+
+    .graphics{
+        grid-area: graphics;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 5%;
+        padding: 3%;
+    }
+
+    .graphics .histogram, 
+    .graphics .bubble{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    }
+
+    .histogram #chart_div, .bubble .canvas_div{
+    width: 90%;
+    height: 60%;
+    }
+
+    .options{
+    width: 30%;
+    height: 40%;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    }
+
+    .selector{
+        margin-left: 4px;
+    }
+
+    .check_box_div span{
+        font-size: 50%;
+    }
+}
